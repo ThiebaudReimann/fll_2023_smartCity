@@ -1,7 +1,7 @@
 # fll_2023_smartCity
 Projekt "Smart City" für das First Lego League Forschungsprojekt 2023
 
-Ideen und Pläne: https://docs.google.com/document/d/1sSxUiqbilrYBTISN_NHXKPWnIPQPQa8gV27-_VFnpfo/edit?usp=sharing
+Ideen und Pläne: https://docs.google.com/document/d/1sSxUiqbilrYBTISN_NHXKPWnIPQPQa8gV27-_VFnpfo/export?format=pdf
 
  * dezentrales System: jeder hat seinen eigenen Akku
  * System: autakes Haus: stellt Energie bereit & verbraucht Energie

@@ -16,7 +16,24 @@
  */
 
 
+#include <ESP8266WiFi.h>
+#include <ESPAsyncTCP.h>
+#include <ESPAsyncWebServer.h>
 
+// Replace with your network credentials
+const char* ssid = "SmartCity";
+const char* password = "SmartCity";
+
+// Create AsyncWebServer object on port 80
+AsyncWebServer server(80);
+
+// Create an Event Source on /events
+AsyncEventSource events("/events");
+
+
+// Timer variables
+unsigned long lastTime = 0;  
+unsigned long timerDelay = 30000;
 
 int maxAh = 100; 
 int leftAh = 100; //enery left -> percentage: (leftA / maxA) * 100
@@ -28,31 +45,38 @@ int consumerPin[2] {D6, D7};
 bool consumerActive[2] {true, true};
 
 void setup(){
-  
-}
-void loop(){
-  
-}
+  // Handle Web Server
+  server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+    request->send_P(200, "text/html", index_html, processor);
+  });
 
-void consume(){ //each hour consume energy  
-  int totalA = 0; //total amphere
-  for(int i=0; i<consumerCount; i++){
-    if(consumerActive[i]){
-      totalA += consumerAmphere[i];
+  // Handle Web Server Events
+  events.onConnect([](AsyncEventSourceClient *client){
+    if(client->lastId()){
+      Serial.printf("Client reconnected! Last message ID that it got is: %u\n", client->lastId());
     }
-  }
-
-  
-  if(leftAh - totalA >= 0){
-    leftAh -= totalA;
-    setLight(true);
-  }else{ //not enough enery: disable leds
-    setLight(false);
-  }
+    // send event with message "hello!", id current millis
+    // and set reconnect delay to 1 second
+    client->send("hello!", NULL, millis(), 10000);
+  });
+  server.addHandler(&events);
+  server.begin();
 }
 
-void setLight(bool enable){
-  for(int i=0; i<consumerCount; i++){
-    digitalWrite(consumerPin[i], enable ? HIGH : LOW);
+void loop(){
+  if ((millis() - lastTime) > timerDelay) {
+    getSensorReadings();
+    Serial.printf("Temperature = %.2f ºC \n", temperature);
+    Serial.printf("Humidity = %.2f \n", humidity);
+    Serial.printf("Pressure = %.2f hPa \n", pressure);
+    Serial.println();
+
+    // Send Events to the Web Server with the Sensor Readings
+    events.send("ping",NULL,millis());
+    events.send(String(temperature).c_str(),"temperature",millis());
+    events.send(String(humidity).c_str(),"humidity",millis());
+    events.send(String(pressure).c_str(),"pressure",millis());
+    
+    lastTime = millis();
   }
 }

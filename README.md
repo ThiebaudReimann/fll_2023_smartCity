@@ -6,12 +6,12 @@ Projekt "Smart City" für das First Lego League Forschungsprojekt 2023
  * Grundgedanke: Strom haben -> Zahlen; Strom einspreisen -> Verdienen
  * Intelligenz: Möglichst effektive Nutzung der Ressourcen (Energie) 
  * Aber auch faire Verteilung gewährleisten: Verpflichtung einen gewissen Anteil einzuspeisen? Optional noch mehr Einspeisen möglich um Geld zu verdienen?
- * 
+
  * Umsetzung:
- * - Akku mit Ah
- * - versch. Verbraucher mit Amphere Angabe
- * - Solar-Panel(s) mit Angabe Effektivität; Nutzen abhängig von Lichtverhältnissen (Sensor)
- * - Status Anzeige (LED): Akku Stand; Energie-Verbrauch
- * - Energie-Überschuss erst in eigenen Akkue einspeisen; Geld für Abgabe ins Netz / an andere Häuser 
- * - Energie-Mangel: Gegen Geld Strom aus anderen Akkus
- * - komplette Energieknappheit: alle Häuser werden gedrosselt
+    - Akku mit Ah
+    - versch. Verbraucher mit Amphere Angabe
+    - Solar-Panel(s) mit Angabe Effektivität; Nutzen abhängig von Lichtverhältnissen (Sensor)
+    - Status Anzeige (LED): Akku Stand; Energie-Verbrauch
+    - Energie-Überschuss erst in eigenen Akkue einspeisen; Geld für Abgabe ins Netz / an andere Häuser 
+    - Energie-Mangel: Gegen Geld Strom aus anderen Akkus
+    - komplette Energieknappheit: alle Häuser werden gedrosselt

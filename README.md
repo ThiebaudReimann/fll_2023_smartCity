@@ -1,7 +1,6 @@
 # fll_2023_smartCity
 Projekt "Smart City" für das First Lego League Forschungsprojekt 2023
 
-/*
  * dezentrales System: jeder hat seinen eigenen Akku
  * System: autakes Haus: stellt Energie bereit & verbraucht Energie
  * Grundgedanke: Strom haben -> Zahlen; Strom einspreisen -> Verdienen
@@ -16,4 +15,3 @@ Projekt "Smart City" für das First Lego League Forschungsprojekt 2023
  * - Energie-Überschuss erst in eigenen Akkue einspeisen; Geld für Abgabe ins Netz / an andere Häuser 
  * - Energie-Mangel: Gegen Geld Strom aus anderen Akkus
  * - komplette Energieknappheit: alle Häuser werden gedrosselt
- */

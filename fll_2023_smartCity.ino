@@ -15,13 +15,17 @@
  * - komplette Energieknappheit: alle Häuser werden gedrosselt
  */
 
+
+
+
 int maxAh = 100; 
 int leftAh = 100; //enery left -> percentage: (leftA / maxA) * 100
 
 //totalA = 50A
 int consumerCount = 2;
-int consumerAmphere[1];
-bool consumerActive[1];
+int consumerAmphere[2] {10, 10};
+int consumerPin[2] {D6, D7};
+bool consumerActive[2] {true, true};
 
 void setup(){
   
@@ -41,7 +45,14 @@ void consume(){ //each hour consume energy
   
   if(leftAh - totalA >= 0){
     leftAh -= totalA;
+    setLight(true);
   }else{ //not enough enery: disable leds
-    
+    setLight(false);
+  }
+}
+
+void setLight(bool enable){
+  for(int i=0; i<consumerCount; i++){
+    digitalWrite(consumerPin[i], enable ? HIGH : LOW);
   }
 }

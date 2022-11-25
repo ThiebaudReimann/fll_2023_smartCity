@@ -38,7 +38,7 @@
                 $username = $_POST["username"];
                 $password = $_POST["password"];
 
-                $sql = "SELECT id FROM users";
+                $sql = "SELECT id FROM smartCity_user WHERE username='$username' AND password='$password'";
                 $result = mysqli_query($this->conn, $sql);
 
                 if (mysqli_num_rows($result) > 0){

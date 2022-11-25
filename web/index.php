@@ -11,8 +11,8 @@
 
         function __construct() {
             session_start();
-            connectDatabase();
-            checkLogin();
+            $this->connectDatabase();
+            $this->checkLogin();
         }
         
 

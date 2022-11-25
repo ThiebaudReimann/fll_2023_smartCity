@@ -2,16 +2,18 @@
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
     error_reporting(E_ALL);
-    
+
     class FLL {
         session_start();
 
         public $conn;
 
 
+        function __construct() {
+            connectDatabase();
+            checkLogin();
+        }
         
-        connectDatabase();
-        checkLogin();
 
 
         function connectDatabase(){

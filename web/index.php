@@ -11,9 +11,6 @@
     connectDatabase();
     checkLogin();
 
-    
-
-    mysqli_close($conn);
 
     function connectDatabase(){
         // Create connection

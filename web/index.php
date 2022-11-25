@@ -1,26 +1,27 @@
 <?php
     session_start();
 
-    $servername = "rdbms.strato.de";
-    $username = "dbu2616508";
-    $password = "dNiIc1lot7JRNI09nRW9";
-    $dbname = "dbs5160395";
+    $conn;
 
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
 
-    // Check connection
-    if (!$conn) {
-        die("Connection failed: " . mysqli_connect_error());
-    } 
-    echo "Connected successfully";
     
     connectDatabase();
     checkLogin();
 
 
     function connectDatabase(){
-        
+        $servername = "rdbms.strato.de";
+        $username = "dbu2616508";
+        $password = "dNiIc1lot7JRNI09nRW9";
+        $dbname = "dbs5160395";
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+
+        // Check connection
+        if (!$conn) {
+            die("Connection failed: " . mysqli_connect_error());
+        } 
+        echo "Connected successfully";
     }
     function checkLogin(){
         if(isset($_SESSION["id"])){

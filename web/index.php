@@ -4,12 +4,13 @@
     error_reporting(E_ALL);
 
     class FLL {
-        session_start();
+        
 
         public $conn;
 
 
         function __construct() {
+            session_start();
             connectDatabase();
             checkLogin();
         }

@@ -1,9 +1,11 @@
 <?php
     session_start();
 
-    $servername = "localhost";
-    $username = "username";
-    $password = "password";
+    $servername = "rdbms.strato.de";
+    $username = "dbu2616508";
+    $password = "dNiIc1lot7JRNI09nRW9";
+    $dbname = "dbs5160395";
+
 
     
     connectDatabase();
@@ -15,7 +17,7 @@
 
     function connectDatabase(){
         // Create connection
-        $conn = mysqli_connect($servername, $username, $password);
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
 
         // Check connection
         if (!$conn) {
